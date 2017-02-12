@@ -9,23 +9,27 @@
 		  completed:
 		  
 */
-var todos = ["item 1", "item 2", "item 3"];
+var todoList = {
+	todos: ['item 1', 'item 2', 'item 3'],
 
-function displayTodos() {
-  console.log('My todos:', todos);
-}
+	displayTodos: function() {
+    console.log('My todos: ', this.todos);
+  }
+};
 
-function addTodo(str) {
-	todos.push(str);
-	displayTodos();
-}
 
-function changeTodo(position, newValue) {
-	todos[position] = newValue;
-	displayTodos();
-}
 
-function deleteTodo(position) {
-	todos.splice(position, 1);
-	displayTodos();
-}
+// function addTodo(str) {
+// 	todoList.push(str);
+// 	displaytodoList();
+// }
+
+// function changeTodo(position, newValue) {
+// 	todoList[position] = newValue;
+// 	displaytodoList();
+// }
+
+// function deleteTodo(position) {
+// 	todoList.splice(position, 1);
+// 	displaytodoList();
+// }
