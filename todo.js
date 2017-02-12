@@ -2,9 +2,9 @@
   V2 Requirements
     completed:
 		  It should have a function to display todos
-
-		required:  
 		  It should have a function to add todos
+		
+		required:  
 		  It should have a function to change todos
 		  It should have a function do delete todos
 */
@@ -15,5 +15,6 @@ function displayTodos() {
 }
 
 function addTodo(str) {
-	
+	todos.push(str);
+	displayTodos();
 }
