@@ -18,3 +18,8 @@ function addTodo(str) {
 	todos.push(str);
 	displayTodos();
 }
+
+function changeTodo(position, newValue) {
+	todos[position] = newValue;
+	displayTodos();
+}
