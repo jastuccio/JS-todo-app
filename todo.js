@@ -1,12 +1,11 @@
 /*
-  V3 Requirements
+  V4 Requirements
     
-		  It should have a deleteTodo method
+		  todoList.addTodo should add objects
+		  todoList.changeTodo should change the todoText property
+		  todoList.toggleCompleted should changethe completed property
 
 		  completed:
-		    It should store the todos array on an object
-			  It should have a displayTodos method
-			  It should have an addTodo method
 		  
 */
 var todoList = {
@@ -22,15 +21,10 @@ var todoList = {
   changeTodo: function(position, newValue) {
 	this.todos[position] = newValue;
 	this.displayTodos();
-}
+  },
+  deleteTodo: function(position) {
+  	this. todos.splice(position, 1);
+  	this.displayTodos();
+  }
+
 };
-
-// function changeTodo(position, newValue) {
-// 	todoList[position] = newValue;
-// 	displaytodoList();
-// }
-
-// function deleteTodo(position) {
-// 	todoList.splice(position, 1);
-// 	displaytodoList();
-// }
