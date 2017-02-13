@@ -5,7 +5,8 @@
 		  todoList.toggleCompleted should changethe completed property
 
 		  completed:
-		     todoList.addTodo should add objects	  
+		     todoList.addTodo should add objects
+		     todoList.changeTodo should change the todoText property  
 */
 var todoList = {
 	todos: [],
@@ -20,9 +21,9 @@ var todoList = {
   	}),
   	this.displayTodos();
   },
-  changeTodo: function(position, newValue) {
-	this.todos[position] = newValue;
-	this.displayTodos();
+  changeTodo: function(position, todoText) {
+	  this.todos[position].todoText = todoText;
+	  this.displayTodos();
   },
   deleteTodo: function(position) {
   	this. todos.splice(position, 1);
