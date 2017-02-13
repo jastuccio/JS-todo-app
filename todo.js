@@ -1,21 +1,23 @@
 /*
   V4 Requirements
     
-		  todoList.addTodo should add objects
 		  todoList.changeTodo should change the todoText property
 		  todoList.toggleCompleted should changethe completed property
 
 		  completed:
-		  
+		     todoList.addTodo should add objects	  
 */
 var todoList = {
-	todos: ['item 1', 'item 2', 'item 3'],
+	todos: [],
 
 	displayTodos: function() {
     console.log('My todos: ', this.todos);
   },
-  addTodo: function(todo) {
-  	this.todos.push(todo);
+  addTodo: function(todoText) {
+  	this.todos.push({
+      todoText: todoText,
+      completed: false
+  	}),
   	this.displayTodos();
   },
   changeTodo: function(position, newValue) {
