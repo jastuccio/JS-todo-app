@@ -1,9 +1,8 @@
 /*
-  V6 Requirements
-    .toggleAll: if every task is true make every task false
-    .toggleAll: Otherwise, make every task true
-
-    completed:
+  V7 Requirements
+    There should be a "Display todos" button and a "Toggle all" button in the app.
+    Clicking "Display todos" should run todoList.displayTodos.
+    Clicking "Toggle all" should run todoList.toggleAll.
 */
 var todoList = {
 	todos: [],
