@@ -1,10 +1,9 @@
 /*
-  V5 Requirements
+  V6 Requirements
+    .toggleAll: if every task is true make every task false
+    .toggleAll: Otherwise, make every task true
 
     completed:
-      .displayTodos should show .todoText
-      .displayTodos should tell you if .todos is empty
-      .displayTodos should show .completed
 */
 var todoList = {
 	todos: [],
@@ -40,6 +39,23 @@ var todoList = {
 	toggleCompleted: function(position) {
 		var todo = this.todos[position];
 		todo.completed = !todo.completed;
+		this.displayTodos();
+	},
+	toggleAll: function() {
+		var totalTodos = this.todos.length;
+		var completedTodos = 0;
+
+		for (var i = 0; i < totalTodos; i++) {
+			if (this.todos[i].completed === true) {
+				completedTodos++;
+			}
+		}
+		if (completedTodos === totalTodos){
+			for(var i = 0; i < totalTodos; i++) {
+				this.todos[i].completed = false;
+			}
+		}
+
 		this.displayTodos();
 	}
 
