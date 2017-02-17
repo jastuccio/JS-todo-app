@@ -1,9 +1,3 @@
-/*
-  V7 Requirements
-    There should be a "Display todos" button and a "Toggle all" button in the app.
-    Clicking "Display todos" should run todoList.displayTodos.
-    Clicking "Toggle all" should run todoList.toggleAll.
-*/
 var todoList = {
 	todos: [],
 
@@ -22,10 +16,10 @@ var todoList = {
 	},
 	addTodo: function(todoText) {
 		this.todos.push({
-				todoText: todoText,
-				completed: false
-			}),
-			this.displayTodos();
+			todoText: todoText,
+			completed: false
+		}),
+		this.displayTodos();
 	},
 	changeTodo: function(position, todoText) {
 		this.todos[position].todoText = todoText;
@@ -64,13 +58,11 @@ var todoList = {
 
 };
 
-var displyTodosButton = document.getElementById('displayTodosButton');
-var toggleAllButton = document.getElementById('toggleAllButton');
-
-displayTodosButon.addEventListener('click', function() {
-	todoList.displayTodos();
-});
-
-toggleAllButton.addEventListener('click', function() {
-	todoList.toggleAll();
-});
+var handlers = {
+  displayTodos: function() {
+	  todoList.displayTodos();
+	},
+	toggleAll: function() {
+	  todoList.toggleAll();
+	}
+};
