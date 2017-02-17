@@ -104,9 +104,18 @@ var view = {
 		var todosUl = document.querySelector('ul');
     todosUl.innerHTML = '';
 		for (var i = 0; i < todoList.todos.length; i++) {
-			var todosUl = document.querySelector('ul');
 			var todoLi = document.createElement('li');
-			todosUl.appendChild(todoLi);
+			var todo = todoList.todos[i];
+			var todoTextWithCompletion = '';
+
+      if (todo.completed === true) {
+        todoTextWithCompletion = '(x) ' + todo.todoText;
+      } else {
+      	todoTextWithCompletion ='( ) ' + todo.todoText;
+      }
+
+		  todoLi.textContent = todoTextWithCompletion;
+		  todosUl.appendChild(todoLi);
 	  }
 	}
 }
