@@ -1,3 +1,13 @@
+/*
+   V8 requirements
+
+     It should have working controls for:
+       .addTodo
+       .changeTodo
+       .deleteTodo
+       .toggleCompleted
+*/
+
 var todoList = {
 	todos: [],
 
