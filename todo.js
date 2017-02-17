@@ -15,6 +15,7 @@ var todoList = {
 		if (this.todos.length === 0) {
 	    console.log('Your todo list is empty!');
     } else {
+    	console.log('My Todos:\n')
 			for (var i = 0; i < this.todos.length; i++) {
 				if (this.todos[i].completed === true) {
 			  console.log('(x) ', this.todos[i].todoText);
@@ -86,5 +87,11 @@ var handlers = {
 		todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
 		changeTodoPositionInput.value = '';
 		changeTodoTextInput.value = '';
+	},
+	deleteTodo: function() { debugger;
+		var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+		todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+		deleteTodoPositionInput.value = '';
+
 	}
 };
