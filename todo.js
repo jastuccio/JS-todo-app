@@ -12,7 +12,7 @@ var todoList = {
 	todos: [],
 
 	displayTodos: function() {
-		if (this.todos.length == 0) {
+		if (this.todos.length === 0) {
 	    console.log('Your todo list is empty!');
     } else {
 			for (var i = 0; i < this.todos.length; i++) {
@@ -74,5 +74,17 @@ var handlers = {
 	},
 	toggleAll: function() {
 	  todoList.toggleAll();
+	},
+	addTodo: function() {
+		var addTodoTextInput = document.getElementById('addTodoTextInput');
+		todoList.addTodo(addTodoTextInput.value);
+	  addTodoTextInput.value = '';
+	},
+	changeTodo: function() {
+		var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+		var changeTodoTextInput = document.getElementById('changeTodoTextInput');
+		todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
+		changeTodoPositionInput.value = '';
+		changeTodoTextInput.value = '';
 	}
 };
