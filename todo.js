@@ -2,6 +2,7 @@
    V11 Requirements
      * todoList.toggleAll should use forEach
      * view.displayTodos should use forEach
+*/
 
 var todoList = {
 	todos: [],
@@ -24,21 +25,21 @@ var todoList = {
 	toggleAll: function() {
 		var totalTodos = this.todos.length;
 		var completedTodos = 0;
-
-		for (var i = 0; i < totalTodos; i++) {
-			if (this.todos[i].completed === true) {
+    
+    // Get number of completed todos.
+    this.todos.forEach(function(todo) {
+      if (todo.completed === true) {
 				completedTodos++;
 			}
-		}
-		if (completedTodos === totalTodos) { // Case 1: if all todos are true (completed) make all todos false
-			for (var i = 0; i < totalTodos; i++) {
-				this.todos[i].completed = false;
+    })
+
+		this.todos.forEach(function(todo) {
+			if (completedTodos === totalTodos) {	// Case 1: if everything is true, make everything false.
+				todo.completed = false;
+			} else {															// Case 2: Otherwise, make everything true.
+				todo.completed = true;
 			}
-		} else { // Case 2: Otherwise make everything true
-			for (var i = 0; i < totalTodos; i++) {
-				this.todos[i].completed = true;
-			}
-		}
+		})
 	}
 
 };
@@ -78,9 +79,24 @@ var view = {
 		displayTodos: function() {
 			var todosUl = document.querySelector('ul');
 			todosUl.innerHTML = '';
-			for (var i = 0; i < todoList.todos.length; i++) {
+			// for (var i = 0; i < todoList.todos.length; i++) {
+			// 	var todoLi = document.createElement('li');
+			// 	var todo = todoList.todos[i];
+			// 	var todoTextWithCompletion = '';
+
+			// 	if (todo.completed === true) {
+			// 		todoTextWithCompletion = '(x) ' + todo.todoText;
+			// 	} else {
+			// 		todoTextWithCompletion = '( ) ' + todo.todoText;
+			// 	}
+
+			// 	todoLi.id = i;
+			// 	todoLi.textContent = todoTextWithCompletion;
+			// 	todoLi.appendChild(this.createDeleteButton());
+			// 	todosUl.appendChild(todoLi);
+			// }
+			todoList.todos.forEach(function(todo, position) {
 				var todoLi = document.createElement('li');
-				var todo = todoList.todos[i];
 				var todoTextWithCompletion = '';
 
 				if (todo.completed === true) {
@@ -89,11 +105,11 @@ var view = {
 					todoTextWithCompletion = '( ) ' + todo.todoText;
 				}
 
-				todoLi.id = i;
+				todoLi.id = position;
 				todoLi.textContent = todoTextWithCompletion;
 				todoLi.appendChild(this.createDeleteButton());
 				todosUl.appendChild(todoLi);
-			}
+			}, this);
 		},
 		createDeleteButton: function() {
 			var deleteButton = document.createElement('button');
