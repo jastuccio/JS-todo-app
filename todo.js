@@ -1,10 +1,7 @@
 /*
-   V10 requirements
-     There should be a way to create delete buttons
-     There should be a delete button for each todo
-     Delete buttons should hace access to the todo id
-     Clicking delete should update todoList.todos and the DOM
-*/
+   V11 Requirements
+     * todoList.toggleAll should use forEach
+     * view.displayTodos should use forEach
 
 var todoList = {
 	todos: [],
